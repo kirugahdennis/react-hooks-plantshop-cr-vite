@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 
-function NewPlantForm({onAddplant}) {
+function NewPlantForm({onAddPlant}) {
 const [formData, setFormData] = useState({
   name: "",
   image:"",
@@ -60,7 +60,7 @@ setFormData({
           name="price"
            step="0.01" 
            placeholder="Price" 
-           value={formData}
+           value={formData.price}
            onChange={handleChange}
            />
         <button type="submit">Add Plant</button>

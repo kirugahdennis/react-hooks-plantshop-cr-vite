@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Header from "./Header";
-import PlantPage from "./PlantPage";
 import PlantList from "./PlantList";
+import NewPlantForm from "./NewPlantForm";
 
 function App() {
   const [plants, setPlants] = useState([]);
@@ -23,12 +23,14 @@ function toggleStock(id) {
 ?{...plant, inStock: !plant.inStock}
 : plant
 );
+
+setPlants(updatedPlants);
 } 
 const filteredPlants = plants.filter((plant) =>
 plant.name.toLowerCase().includes(search.toLowerCase()));
   return (
   <main>
-    <header/>
+    <Header/>
 
       <input
       type= "text"
@@ -36,7 +38,7 @@ plant.name.toLowerCase().includes(search.toLowerCase()));
       value={search}
       onChange={(e) => setSearch(e.target.value)}
       />
-      <NewPlantForm onAddPlant = {addPlants} />
+      <NewPlantForm onAddPlant = {addPlant} />
       <PlantList
       plants={filteredPlants}
       onToggleStock={toggleStock}

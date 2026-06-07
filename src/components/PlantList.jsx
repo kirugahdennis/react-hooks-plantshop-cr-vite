@@ -4,7 +4,7 @@ import PlantCard from "./PlantCard";
 function PlantList({ plants, onToggleStock}) {
   return (
     <ul className="cards">{
-      PlantList.map((plant) => (
+      plants.map((plant) => (
         <PlantCard
       key={plant.id}
       plant={plant}
